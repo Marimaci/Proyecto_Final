@@ -1,7 +1,8 @@
 print("¡¡ HOLA A TODOS !!")
 
-print("..........")
+print("........")
 print("papa aqui")
+
 
 
 
