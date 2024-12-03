@@ -10,25 +10,17 @@ import pandas as pd
 import re
 
 
-
-
 def imagenes(busqueda, paginas):
     s = Service(ChromeDriverManager().install())
     opc = Options()
     opc.add_argument("--window.size=1020,1200")
     navegador = webdriver.Chrome(service=s, options=opc)
 
-
-
-
     navegador.get("https://www.mercadolibre.com.mx/")
     time.sleep(5)
     txtInput = navegador.find_element(By.ID, value="cb1-edit")
     txtInput.send_keys(busqueda)
     txtInput.submit()
-
-
-
 
     data = {"Titulo": [], "Precio": [], "Valoracion": [], "Precio_sin_descuento": [], "Tienda": [], "Marca": []}  # Agregada columna "Marca"
     marcas = ["Samsung", "Iphone", "Motorola", "Redmi", "Oppo", "Xiaomi", "Moto"]

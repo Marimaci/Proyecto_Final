@@ -2,8 +2,6 @@ import pandas as pd
 import mysql.connector
 
 
-
-
 def insertar_datos():
 
    # Conexión a MySQL
