@@ -115,7 +115,7 @@ def imagenes(busqueda, paginas):
 
 
 
-
+    # Boton para cerrar
       bottonSiguiente = navegador.find_element(By.CSS_SELECTOR, "a[title='Siguiente']")
       bottonSiguiente.click()
 
