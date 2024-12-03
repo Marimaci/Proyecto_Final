@@ -1,5 +1,5 @@
 
-"Importar librerias necesarias para e web scraping"
+" Importar librerias necesarias para e web scraping "
 import time
 import csv
 from selenium import webdriver
@@ -14,7 +14,7 @@ import re
 
 
 
-
+#Función de busqueda en la página seleccionada
 def imagenes(busqueda, paginas):
   s = Service(ChromeDriverManager().install())
   opc = Options()
@@ -32,7 +32,7 @@ def imagenes(busqueda, paginas):
 
 
 
-
+# Diccionario y/o lista para guardar los datos extraidos
   data = {"Titulo": [], "Precio": [], "Valoracion": [], "Precio_sin_descuento": [], "Tienda": [], "Marca": []}  # Agregada columna "Marca"
   marcas = ["Samsung", "Iphone", "Motorola", "Redmi", "Oppo", "Xiaomi", "Moto"]
 
@@ -132,11 +132,11 @@ def imagenes(busqueda, paginas):
   time.sleep(5)
   navegador.quit()
 
-
+# Se guarda en un dataframe
   df = pd.DataFrame(data)
   df.to_csv("database/celulares_merc2.csv", index_label="ID")  # Guardamos el CSV con índice ID
 
-
+# Función principal para llamar y/o guardar las busquedas
 if __name__ == "__main__":
   busqueda = "celulares"
   paginas = 6
