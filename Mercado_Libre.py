@@ -128,7 +128,6 @@ def imagenes(busqueda, paginas):
 
 
 
-
   time.sleep(5)
   navegador.quit()
 
