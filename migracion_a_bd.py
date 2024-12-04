@@ -7,11 +7,11 @@ def insertar_datos():
         host="localhost",
         user="root",
         password="87654321",
-        database="celulares3"
+        database="celulares"
     )
     cursor = conexion.cursor()
 
-    df = pd.read_csv("database/celulares_final3.csv", delimiter=";")
+    df = pd.read_csv("database/celulares_final.csv", delimiter=";")
 
     tiendas = df['Tienda'].unique()
     for tienda in tiendas:

@@ -21,8 +21,6 @@ Lo que queremos saber es:
 
 - ¿Qué marcas son mejores de acuerdo a Precio-Valoración?
 
-- ¿Qué tienda online tiene mejor valoración?
-
 - ¿Qué tienda online tiene más inventario/variedad?
 
 - ¿Qué tiendas tienen mejores precios?
