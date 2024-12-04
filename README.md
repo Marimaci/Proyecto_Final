@@ -84,7 +84,9 @@ Paso 4: MIGRACION DE DATOS
 Se tiene que correr el codigo de "migracion_a_bd.py" en python, esto con el fin de pasar los datos procesados a sql.
 
 Paso 5: CREACION DE DASHBOARD
-
+- El dashboar uno es de amazon, el segundo de mercado libre y el tercero de comparación de ambas.
+- El welcome solo es la bienvenida a la pagina.
+- El menú es donde se llama a todos los dashboards y el welcome para tenerlo dentro de un mismo lugar.
 
 # Colaboradores :beginner:
 Delgadillo Marquez Omar Ricardo
