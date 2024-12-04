@@ -1,5 +1,5 @@
 # Proyecto_Final  :smile:
-# Descripción del Problema 
+# Descripción del Problema :school:
 
 Mercado Libre y Amazon se encuentran entre las plataformas de comercio electrónico más importantes de América Latina y del planeta, en ese orden.
 
@@ -12,7 +12,7 @@ En términos de precios, Mercado Libre generalmente ofrece tarifas más competit
 Por el contrario, Amazon tiene la capacidad de vender productos a precios más altos gracias a su infraestructura global, aunque también dispone de una gran variedad de opciones con rebajas. 
 
 
-# Objetivos
+# Objetivos :office:
 
 **Preguntas a resolver**
 En este análisis se compararon celulares en distintas páginas web, lo que se tomará en cuenta son precios, valoraciones y cantidades ofrecidas, también se compararán productos por marca, los productos se separarán por marca para ver cuáles son mejores, así se verá cuáles productos destacan más.
@@ -30,7 +30,7 @@ Lo que queremos saber es:
 - ¿Qué marcas son más compradas?
 
 
-# Recolección de Datos
+# Recolección de Datos  :information_source:
 **Mercado libre**
 Se utilizó la página de mercado libre, aquí se hace la búsqueda de celulares, ya que nuestra comparación es de ello.
 
@@ -38,14 +38,14 @@ Los datos que se tomaron para trabajar fueron los de título, precio, valoració
 https://listado.mercadolibre.com.mx/celulares#D[A:celulares]
 
 
-**Amazon**
+**Amazon** 
 Se utilizó después la página de amazon, aquí se hizo el mismo procedimiento para recolectar datos que en mercado libre.
 
 Se recolectaron exactamente los mismos atributos que en la pagina anterior
 https://www.amazon.com.mx/?tag=msndeskabkmx-20&ref=pd_sl_39b6ojqq8e_e&adgrpid=1163283722832216&hvadid=72705306190847&hvnetw=o&hvqmt=e&hvbmt=be&hvdev=c&hvlocint=&hvlocphy=151132&hvtargid=kwd-72705584308339:loc-119&hydadcr=13960_10764340
 
 
-# Transformación
+# Transformación :abc:
 
 **Diccionario de Datos
 **
@@ -68,7 +68,7 @@ Productos:
 |  Foreing Key | id_tienda  | INT  |
 
 
-# Instrucciones de uso
+# Instrucciones de uso :clock1230:
 **Indicaciones
 **
 Paso 1: WEB SCRAPING
@@ -86,7 +86,7 @@ Se tiene que correr el codigo de "migracion_a_bd.py" en python, esto con el fin 
 Paso 5: CREACION DE DASHBOARD
 
 
-# Colaboradores
+# Colaboradores :beginner:
 Delgadillo Marquez Omar Ricardo
 
 Felix Triche Emmanuel
