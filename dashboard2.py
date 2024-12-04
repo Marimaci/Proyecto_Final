@@ -8,26 +8,26 @@ from dash import dcc, html, callback, Input, Output
 df = pd.read_csv("database/celulares_final.csv", sep=";")
 
 
-# Filtrar solo Amazon
-amazon_data = df[df["Tienda"] == "amazon"]
+# Filtrar solo Mercado Libre
+mercado_libre_data = df[df["Tienda"] == "mercado_libre"]
 
 
 # Definir los intervalos de precios
-bins = [1000, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 55000]
+bins = [1000, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 55000, 65000]
 labels = [
    "1000-5000", "5000-10000", "10000-15000", "15000-20000", "20000-25000",
-   "25000-30000", "30000-35000", "35000-40000", "40000-45000", "45000-55000"
+   "25000-30000", "30000-35000", "35000-40000", "40000-45000", "45000-55000", "55000-65000"
 ]
 
 
 # Función para crear la gráfica de barras
 def grafica_barras():
-   grouped_data = amazon_data.groupby("Marca").size().reset_index(name="Cantidad")
+   grouped_data = mercado_libre_data.groupby("Marca").size().reset_index(name="Cantidad")
    fig = px.bar(
        grouped_data,
        x="Marca",
        y="Cantidad",
-       title="Cantidad de Celulares por Marca en Amazon",
+       title="Cantidad de Celulares por Marca en Mercado Libre",
        labels={"Cantidad": "Número de Modelos"},
        color="Marca"
    )
@@ -36,8 +36,8 @@ def grafica_barras():
 
 # Función para crear la gráfica de pie
 def grafica_pie(marca):
-   filtered_data = amazon_data[amazon_data["Marca"] == marca]
-   filtered_data['Rango de Precio'] = pd.cut(filtered_data["Precio"], bins=bins, labels=labels, right=False)
+   filtered_data = mercado_libre_data[mercado_libre_data["Marca"] == marca]
+   filtered_data['Rango de Precio'] = pd.cut(filtered_data["Precio"], bins=bins, labels=labels, right=True)
    rangos_precios_count = filtered_data.groupby("Rango de Precio").size().reset_index(name="Cantidad")
    fig = px.pie(
        rangos_precios_count,
@@ -52,10 +52,10 @@ def grafica_pie(marca):
 # Función para crear la gráfica de dispersión
 def grafica_dispersion(marca):
    if marca == "Todas":
-       filtered_data = amazon_data
+       filtered_data = mercado_libre_data
        title = "Relación entre Precio y Valoraciones por Marca"
    else:
-       filtered_data = amazon_data[amazon_data["Marca"] == marca]
+       filtered_data = mercado_libre_data[mercado_libre_data["Marca"] == marca]
        title = f"Relación entre Precio y Valoraciones para {marca}"
    fig = px.scatter(
        filtered_data,
@@ -72,7 +72,7 @@ def grafica_dispersion(marca):
 # Definir el layout
 def dashboard():
    body = html.Div([
-       html.H1("Dashboard de Celulares en Amazon", style={"text-align": "center"}),
+       html.H1("Dashboard de Celulares en Mercado Libre", style={"text-align": "center"}),
        html.Div([
            html.H2("Cantidad de Celulares por Marca"),
            dcc.Graph(id="cantidad-marca", figure=grafica_barras())
@@ -81,22 +81,22 @@ def dashboard():
            html.H2("Distribución de Celulares por Intervalo de Precios"),
            dcc.Dropdown(
                id="marca-dropdown",
-               options=[{"label": marca, "value": marca} for marca in amazon_data["Marca"].unique()],
-               value=amazon_data["Marca"].unique()[0],
+               options=[{"label": marca, "value": marca} for marca in mercado_libre_data["Marca"].unique()],
+               value=mercado_libre_data["Marca"].unique()[0],
                clearable=False
            ),
-           dcc.Graph(id="rangos-precios-pie")
+           dcc.Graph(id="rangos-precios-pie2")
        ]),
        html.Div([
            html.H2("Dispersión de Valoraciones vs. Precio"),
            dcc.Dropdown(
                id="marca-dispersion-dropdown",
                options=[{"label": "Todas las Marcas", "value": "Todas"}] +
-                       [{"label": marca, "value": marca} for marca in amazon_data["Marca"].unique()],
+                       [{"label": marca, "value": marca} for marca in mercado_libre_data["Marca"].unique()],
                value="Todas",
                clearable=False
            ),
-           dcc.Graph(id="dispersión-valoraciones-precio")
+           dcc.Graph(id="dispersión-valoraciones-precio2")
        ])
    ])
    return body
@@ -109,7 +109,7 @@ app.layout = dashboard()
 
 # Callbacks para actualizar las gráficas
 @callback(
-   Output("rangos-precios-pie", "figure"),
+   Output("rangos-precios-pie2", "figure"),
    Input("marca-dropdown", "value")
 )
 def update_rangos_precios_pie(selected_marca):
@@ -117,7 +117,7 @@ def update_rangos_precios_pie(selected_marca):
 
 
 @callback(
-   Output("dispersión-valoraciones-precio", "figure"),
+   Output("dispersión-valoraciones-precio2", "figure"),
    Input("marca-dispersion-dropdown", "value")
 )
 def update_dispersion(selected_marca):
