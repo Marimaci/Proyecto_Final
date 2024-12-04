@@ -69,8 +69,9 @@ Productos:
 # Instrucciones de uso :clock1230:
 **Indicaciones
 **
+
 Paso 1: WEB SCRAPING
-Para utilizar el proyecto es correr el codigo de web scraping"Mercado_Libre.py" y "Amazon.py". En caso de omitir esto, descargar el query  de "celulares.sql" para mayor rapidez.
+Para utilizar el proyecto es correr el codigo de web scraping"Mercado_Libre.py" y "Amazon.py".
 
 Paso 2: LIMPIEZA DE DATOS
 En esta ocacion corre el codigo "limpieza_datos.py" para limpiar los datos extraidos de web scraping, de esta manera se podra trabajar de forma correcta los datos obtenidos.
